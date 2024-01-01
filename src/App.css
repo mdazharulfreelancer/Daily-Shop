@@ -1,0 +1,45 @@
+.frashcardScroollbar::-webkit-scrollbar {
+  width: 0px;
+}
+.categoriesScroll::-webkit-scrollbar {
+  width: 0px;
+}
+.activePcHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.activeMobailHeader {
+  position: fixed;
+  top: 0;
+  padding: 0.4rem 1rem;
+  background-color: #3182ce;
+  left: 0;
+  z-index: 999;
+}
+.activePcHeaderBackground {
+  background-color: #3182ce;
+}
+@media screen and (max-width: 425px) {
+  .justforyoucradwith {
+    width: 168px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .justforyoucradwith {
+    width: 145px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .justforyoucradwith {
+    width: 120px !important;
+  }
+}
+.iconsfooter svg {
+  width: 24px;
+  height: 24px;
+  color: gray;
+}
