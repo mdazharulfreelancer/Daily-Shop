@@ -5,7 +5,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { PiDotsNineBold } from "react-icons/pi";
 import { RiAccountPinCircleLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-const FooterMobail = () => {
+const FooterMobail = ({isOpen}) => {
   return (
     <>
         <Container px={0}>
@@ -30,11 +30,11 @@ const FooterMobail = () => {
                         </Box>
                     </VStack>
 
-                    <VStack gap={1}>
+                    <VStack cursor={'pointer'} onClick={isOpen} gap={1}>
                         <Box className='iconsfooter' color={'gray.600'}  >
                             <FaShoppingCart />
                         </Box>
-                        <Box>
+                        <Box >
                             <Text color={'gray.600'} fontSize={'xs'}>Cart</Text>
                         </Box>
                     </VStack>

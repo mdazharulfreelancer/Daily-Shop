@@ -21,9 +21,31 @@
 .activePcHeaderBackground {
   background-color: #3182ce;
 }
+.carticonsvg {
+  svg {
+    color: #decdcd;
+    font-size: 25px;
+  }
+}
+.iconssvgtaka {
+  svg {
+    font-size: 10px;
+    color: yellow;
+  }
+}
+
+.locationsvgcheckout {
+  svg {
+    font-size: 25px;
+    color: #3182ce;
+  }
+}
 @media screen and (max-width: 425px) {
   .justforyoucradwith {
     width: 168px !important;
+  }
+  .chakra-modal__content-container {
+    width: 100vw !important;
   }
 }
 

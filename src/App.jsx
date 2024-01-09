@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
+import './App.scss'
 import FreeDelivery from './component/Home/FastCategory/FreeDelivery/FreeDelivery'
 import FreshSalePc from './component/Home/FreshSale/FreshSaleDesktop/FreshSalePc'
 import FreshSalePhone from './component/Home/FreshSale/Freshsalephone/FreshSalePhone'
@@ -7,6 +7,7 @@ import MoreProductPage from './component/MoreProductPage/MoreProductPage'
 import Pagelayout from './layout/pagelayout/Pagelayout'
 import AllGategori from './pages/AllCategory/AllGategori'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
+import Checkout from './pages/Checkout/Checkout'
 import Home from './pages/Home/Home'
 import ProductDitals from './pages/ProductDitals/ProductDitals'
 
@@ -26,6 +27,7 @@ function App() {
          <Route path='/free-delivery' element={< FreeDelivery/>} />
          <Route path='/view-all-product/:name' element={< MoreProductPage/>} />
          <Route path='/all-category' element={< AllGategori/>} />
+         <Route path='/checkout-page' element={< Checkout/>} />
       
       </Routes>
     </Pagelayout>

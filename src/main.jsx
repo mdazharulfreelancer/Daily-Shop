@@ -7,6 +7,9 @@ import App from './App.jsx'
 import './index.css'
 // 1. Import the extendTheme function
 import { extendTheme } from '@chakra-ui/react'
+import { Provider } from 'react-redux'
+import { modalTheme } from './modeltheme.jsx'
+import store from './store.jsx'
 
 const styles = {
   global: (props) => ({
@@ -26,13 +29,15 @@ const styles = {
 };
 
 // 3. extend the theme
-const theme = extendTheme({ config, styles });
+const theme = extendTheme({ config, styles ,  components: { Modal: modalTheme }});
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  <Provider store = {store}>
     <BrowserRouter>
       <ChakraProvider theme ={theme}>
         <App />
       </ChakraProvider>
     </BrowserRouter>
+  </Provider>
   </React.StrictMode>
 )
