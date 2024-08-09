@@ -1,7 +1,7 @@
 import { SearchIcon } from '@chakra-ui/icons'
 import { Box, Flex, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import React, { useEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import SliderMobail from './SliderMobail'
 
 const activeMobailHeader = { 
@@ -50,7 +50,7 @@ const HeaderMobail = () => {
             window.innerHeight > 50 && (
         
                 <>
-                       <Box bg={'blue.600'} w={"full"} minH={"9vh"} >
+                       <Box bg={'blue.500'} w={"full"} minH={"9vh"} className='header-none'>
                                 <Box pos={'relative'}>
 
                              {
@@ -71,7 +71,7 @@ const HeaderMobail = () => {
                                     <Flex w={"full"}  pos={'absolute'} top={0} left={0} px={4} py={2} alignItems={"center"} justifyContent={"center"}>
                                     <Box w={'full'} ref={Mobailheader}>  
                                     <InputGroup  bg={"whiteAlpha.800"}>
-                                        <InputLeftElement>
+                                        <InputLeftElement as={Link} to={'/search-items'}>
                                         <SearchIcon />
                                         </InputLeftElement>
                                         <Input  _focus={{border:"none", borderRadius:0}} placeholder="blututh Speckar" />

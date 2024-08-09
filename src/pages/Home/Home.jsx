@@ -29,6 +29,10 @@ const Home = () => {
             <FrashSale />
           </Box>
 
+          {/* <Box w={"full"}>
+            <TopRankingHome />
+          </Box> */}
+
           <Box w={"full"}>
             <Categories />
           </Box>

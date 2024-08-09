@@ -18,6 +18,8 @@ const Checkout = () => {
        return setTotal(price.reduce((a, b) => a + b, 0))
     }, [cartItems])
 
+
+
   return (
     <>
         <Container maxW={'container.xl'}>

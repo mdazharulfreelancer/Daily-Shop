@@ -10,7 +10,7 @@ import Footer from './Footer';
 
 const CartModel = ({isOpen,onClose,setOpen, cartItems ,open, total}) => {
     const [price, setPrice] = React.useState(0)
-    console.log(price)
+//    console.log(price)
 
     useEffect(() => { 
  

@@ -3,7 +3,7 @@
 
 import { Box, Flex, Input, Text, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BsCashCoin, BsInfoSquare } from "react-icons/bs";
 import { FaHandshake } from "react-icons/fa";
 import { IoAddSharp, IoLocationOutline } from "react-icons/io5";
@@ -11,16 +11,32 @@ import { PiHandshake } from 'react-icons/pi';
 import { RxDividerHorizontal } from "react-icons/rx";
 import { TbAwardOff } from "react-icons/tb";
 import ReactStarts from "react-rating-stars-component";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from 'react-router-dom';
 import { addToCart } from "../../actions/CartAction";
+import { getProductDitalsIdName } from "../../actions/ProductAction";
 import "./ProductDitalsPage.scss";
 import img from './image/Orange Minimalist E Wallet Logo.png';
 
 export default  function ProductDitalsPage  ()  {
+
     const dispatch = useDispatch()
     const [open , setopen] = useState(false)
     const [openService , setopenService] = useState(false)
+    const { ProductDitalsname} = useSelector(state => state.ProductDital)
+    const {id, name} = useParams()
+  
+
+ 
+    React.useEffect(() => { 
+        document.title = `${name} || Product Ditals Page`
+    }, [ ])
+
+
+    useEffect(() => {
+        dispatch(getProductDitalsIdName(id, name))
+    },[dispatch])
+
 
 
   //  console.log(open)
@@ -126,11 +142,11 @@ const handleMouseOver = () => {
               ],
         name : "P47 - Wireless Bluetooth Headphone - Neckband - Neckband - Neckband - Wireless Earbud"
     }
-    const {name} = useParams()
+    
     //console.log("trackInfoClick",name)
     const [quantity , setquantity] = useState(1)
-    const [price , setprice] = useState(440)
-    const [regular , setregularprice] = useState(140)
+    const [price , setprice] = useState(ProductDitalsname.currentprice)
+    const [regular , setregularprice] = useState(ProductDitalsname?.regularprice)
 
   const incrishQuantity = () =>{ 
         setquantity(quantity + 1)
@@ -138,13 +154,15 @@ const handleMouseOver = () => {
 
   }
 
+
     const discrishQuantity = () =>{ 
         if(quantity > 1){
             setquantity(quantity - 1)
 
         }
     }
-    const productId = '659cee4c6af2e848d136de57'
+    const productId = ProductDitalsname?._id
+    
     const adtocart = (productId, quantity) =>{ 
        
         dispatch(addToCart(productId, quantity))
@@ -191,7 +209,7 @@ const handleMouseOver = () => {
 
                     
                    {
-                   productImage.img &&   productImage.img.map((item, index)=>{
+                   ProductDitalsname.productimage &&   ProductDitalsname?.productimage.map((item, index)=>{
                         return(
                         <div key={index}>
                             {
@@ -201,7 +219,7 @@ const handleMouseOver = () => {
                                     <div className='ProductDitalsLeftMainImage'>
                                         
                                         
-                                                <img src={item.image } alt='' />
+                                     <img src={item.url } alt='' />
                                             
                                         
                                     
@@ -212,7 +230,7 @@ const handleMouseOver = () => {
                                     <div className='ProductDitalsLeftMainImage'>
                                         
                                         
-                                                <img src={item.image } alt='' />
+                                                <img src={item.url } alt='' />
                                             
                                         
                                     
@@ -233,10 +251,10 @@ const handleMouseOver = () => {
 
                     {
                     
-                    productImage.img.map((ele, index) =>{
+                    ProductDitalsname?.productimage &&     ProductDitalsname?.productimage.map((ele, index) =>{
                         return(
                             <div key={index}  onMouseOver={handleMouseOver} onMouseOut={handleMouseOuta}  className='ProductDitalsSubImageItem'>
-                            <img onMouseOver={()=>setIsHoveringCount(index)}  src={ele?.image}
+                            <img onMouseOver={()=>setIsHoveringCount(index)}  src={ele?.url}
                              alt='' />
                             </div>                           
                         )
@@ -267,7 +285,7 @@ const handleMouseOver = () => {
                 <div className='ProductDitalsMiddleContant'>
 
                     <div className='ProductName'>
-                        <h3> {productImage.name}</h3>
+                        <h3> {ProductDitalsname?.productname}</h3>
                     </div>
 
                     <div className='productRatings'>
@@ -276,8 +294,8 @@ const handleMouseOver = () => {
                     </div>
 
                     <div className='ProductDitalsbrand'>
-                        <Link className='brand  '>brand :</Link>
-                        <Link className='BrandBorder customA'>No brand</Link>
+                        <Link className='brand  '>brand : </Link>
+                        <Link className='BrandBorder customA'> {ProductDitalsname?.brand}</Link>
                         <Link className='bordeBrand customA'>more adio for brand</Link>
                     </div>
 
@@ -285,14 +303,14 @@ const handleMouseOver = () => {
                     <VStack alignItems={'start'} spacing={0} gap={0}>
                                     <Box>
                                     <Text fontSize={18} color={'orange.500'}>
-                                    ৳ {price * quantity}
+                                    ৳ {ProductDitalsname?.currentprice * quantity}
                                     </Text>
                                 </Box>
 
                                 <Flex w={'full'} gap={2}>
-                                    <Text fontSize={'sm'} color={'gray.500'} textDecoration={'line-through'}> ৳{ regular * quantity}</Text>
+                                    <Text fontSize={'sm'} color={'gray.500'} textDecoration={'line-through'}> ৳{ ProductDitalsname?.regularprice * quantity}</Text>
 
-                                    <Text fontSize={'sm'} color={'gray.700'} >{(Math.floor(((regular - price) /regular) * 100 )) }%</Text>
+                                    <Text fontSize={'sm'} color={'gray.700'} >{(Math.floor(((ProductDitalsname?.regularprice - ProductDitalsname?.currentprice) /ProductDitalsname?.regularprice) * 100 )) }%</Text>
                                     
                                 </Flex>
                                 </VStack>
@@ -305,13 +323,17 @@ const handleMouseOver = () => {
 
                     <div className='ProductDitalsbrand CategoryProductDetals'>
                         <span className='brand'>Category :</span>
-                        <Link className='customA'>Table</Link>
+                        <Link className='customA'> {ProductDitalsname?.category}</Link>
+                    </div>
+                    <div className='ProductDitalsbrand CategoryProductDetals'>
+                        <span className='brand'>Sub Category :</span>
+                        <Link className='customA'> {ProductDitalsname?.subcategory}</Link>
                     </div>
 
                     
                     <div className='ProductDitalsbrand CategoryProductDetals'>
                         <span className='brand'>Dailay Shop recomanded :</span>
-                        <span className=''>Recomanded</span>
+                        <span className=''> {ProductDitalsname?.dailayshoprecomanded}</span>
                     </div>
 
                     <div className='ProductDitalsbrand CategoryProductDetals'>
@@ -326,13 +348,13 @@ const handleMouseOver = () => {
 
                     <div className='ProductDitalsbrand CategoryProductDetals'>
                         <span className='brand'>Free Dalivari:</span>
-                        <span className=''>Free  </span>
+                        <span style={ProductDitalsname?.freedalivary === 'no' ? {color:'red' } : {color:'green'}} className=''> {ProductDitalsname?.freedalivary === 'no' ? "Not avableable":'Its FreeDalivary' }  </span>
                     </div>
 
                     
                     <div className='ProductDitalsbrand CategoryProductDetals'>
                         <span className='brand'>Offer:</span>
-                        <span className='customA'>20% </span>
+                        <span style={ProductDitalsname?.offer === 'no' ? {color:'red' } : {color:'green'}} className='customA'>       {ProductDitalsname?.offer ===  'no' ? "Not avableable" :ProductDitalsname?.offer }</span>
                     </div>
 
 

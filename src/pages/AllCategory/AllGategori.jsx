@@ -7,7 +7,6 @@ const AllGategori = () => {
     <>
         <Container   maxW={"container.xl"} >
             <Flex flexWrap={'wrap'} gap={2} className='' w={"full"} >
-
                 <CategoryCards />
                 <CategoryCards />
                 <CategoryCards />

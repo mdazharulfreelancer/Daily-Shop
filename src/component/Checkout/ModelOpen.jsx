@@ -39,7 +39,6 @@ const ModelOpen = ({onClose,isOpen,size, setAdress}) => {
 
     const handleSubmit = (e) => { 
         e.preventDefault()
-
         if(inputs.name.value === ''){
             setInputs({...inputs, name:{...inputs.name, error:true}})
         }else if(inputs.mobile.value === ''){ 
@@ -55,7 +54,6 @@ const ModelOpen = ({onClose,isOpen,size, setAdress}) => {
         }else{
             setAdress(inputs.address)
             localStorage.setItem('address', JSON.stringify(inputs))
-
             onClose()
         }
 

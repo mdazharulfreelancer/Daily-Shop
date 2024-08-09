@@ -44,10 +44,10 @@ const HomeSlider = () => {
      ]
 
     const slides = [
-        { url: "https://icms-image.slatic.net/images/ims-web/2f2a89a2-159d-41a3-981c-b6c72738db00.jpg", title: "beach" },
+        { url: "https://res.cloudinary.com/daxvmjaff/image/upload/v1723012172/4496797d-7165-4419-a6d7-190cfe96c6c1_BD-1976-688.jpg_1200x1200q80.jpg__ih3y5f.webp", title: "beach" },
         { url: "https://icms-image.slatic.net/images/ims-web/95ea403f-5b21-44dd-9eae-c2b5792c8b83.jpg", title: "boat" },
-        { url: "https://icms-image.slatic.net/images/ims-web/95ea403f-5b21-44dd-9eae-c2b5792c8b83.jpg", title: "forest" },
-        { url: "https://icms-image.slatic.net/images/ims-web/05da6bc6-a6e4-4e27-81ab-d3572a9b2433.jpg", title: "city" },
+        { url: "https://res.cloudinary.com/daxvmjaff/image/upload/v1723012172/aa2601b5-90d4-4fd9-ab84-12af36b8c100_BD-1976-688.jpg_1200x1200q80.jpg__yo0xwx.webp", title: "forest" },
+        { url: "https://img.lazcdn.com/us/domino/66bbcc0f-3822-4a8e-934e-0871dd5242cf_BD-1976-688.jpg_1200x1200q80.jpg_.webp", title: "city" },
         { url: "https://icms-image.slatic.net/images/ims-web/54ab8c87-35df-421f-8d2f-c0089b6b350c.jpg_1200x1200.jpg", title: "italy" },
       ];
 
@@ -69,8 +69,8 @@ const HomeSlider = () => {
                         {
                             categories && categories.map((category, index) => {
                                 return (
-                                    <>
-                                                                                  <Box key={index} _hover={{color:'red'}}>
+                                   
+                                                                                                <Box key={index} _hover={{color:'red'}}>
                             <Flex  as={Link} alignItems={'center'} >
                                 <Box>
                                     <GoDot />
@@ -81,7 +81,7 @@ const HomeSlider = () => {
                                 }</Text>
                                 </Flex>
                             </Box>
-                                    </>
+                                 
                                 )
                             })   
                         }
@@ -92,7 +92,7 @@ const HomeSlider = () => {
                 <Flex flex={4} >
                     <Box w={'full'}>
                     <div style={containerStyles}>
-                        <SimpleSlider slides={slides} />
+                        <SimpleSlider  slides={slides} />
                     </div>
 
                 

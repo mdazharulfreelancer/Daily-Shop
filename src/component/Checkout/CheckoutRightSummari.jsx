@@ -2,7 +2,6 @@ import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { MdOutlineCropRotate, MdOutlineLocationSearching } from "react-icons/md";
 
-
 const CheckoutRightSummari = ({total}) => {
     const [deleryFee, setDeleryFee] = React.useState(0)
     useEffect(() => {
@@ -12,6 +11,29 @@ const CheckoutRightSummari = ({total}) => {
             setDeleryFee(40)
         }
     }, [deleryFee])
+    useEffect(() =>{
+     
+    },[])
+    const SendDataPayment = async() =>{
+        const address = JSON.parse(localStorage.getItem('address'))
+        const id = "66a8d65628d33b0da000af48"
+       address.productId = id
+        console.log(address)
+
+        try{
+             await fetch("/api/v1/checkout-page/order" ,{
+                method : "POST",
+                headers :  { "Content-Type": "application/json"},      
+                body : JSON.stringify(address)
+             }).then((res) =>res.json())
+             .then((result) => {
+                window.location.replace(result.url)
+             })
+
+        }catch {
+
+        }
+    }
   return (
   <>
     <Box w={'full'}>
@@ -136,7 +158,7 @@ const CheckoutRightSummari = ({total}) => {
                         <Flex w={'full'} justifyContent={'center'} py={2}>
                         <Box w={'full'}>
    
-                         <Button w={'full'} bg={'#f08804'} color={'#fff'} _hover={{bg:'#f08804'}} fontWeight={500} alignItems={'center'} gap={4}>
+                         <Button onClick={SendDataPayment} w={'full'} bg={'#f08804'} color={'#fff'} _hover={{bg:'#f08804'}} fontWeight={500} alignItems={'center'} gap={4}>
                                 Place Order
                          </Button>
                     

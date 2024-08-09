@@ -22,11 +22,14 @@ const CheckoutAdress = () => {
   
     useEffect(() => { 
         const address = JSON.parse(localStorage.getItem('address'))
+       // console.log(address.mobail)
         setAdress(address?.address)
         if(address?.address?.length > 1){
             setNewAdress(false)
         }
     }, [])
+
+ 
 
   return (
    <>

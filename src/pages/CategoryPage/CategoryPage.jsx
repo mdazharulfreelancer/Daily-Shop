@@ -7,7 +7,7 @@ const CategoryPage = () => {
   return (
     <>
         <Container maxW={{base:'container.sm', md:'container.xl'}} px={{base:0}}  mt='10'>
-        <Flex px={{base:2, md:5}}>
+        <Flex px={{base:1, md:5}}>
                 {
                     window.innerWidth > 768 &&   <Flex bg={'white'} w={'250px'} h={'100%'} flex={1} >
                     <Sidebar />

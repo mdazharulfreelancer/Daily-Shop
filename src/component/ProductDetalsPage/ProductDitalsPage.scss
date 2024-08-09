@@ -140,6 +140,17 @@
   gap: 1rem;
   padding-top: 0.5rem;
 }
+.productRatingsHomeCard {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+.productRatingsHomeCard > .customA {
+  font-size: 12px;
+}
 .productRatings > span {
   font-size: 14px;
 }

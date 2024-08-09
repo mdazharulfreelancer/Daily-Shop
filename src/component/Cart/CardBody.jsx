@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, removeFromCart } from '../../actions/CartAction'
 
-const CardBody = ({qty,  productimage,productname, id,currentprice, cartItems}) => {
+const CardBody = ({qty,  productimage,productname, id,currentprice}) => {
     const dispatch = useDispatch()
     const [quantity, setQuantity] = React.useState(qty)
     const price = currentprice * quantity
@@ -15,10 +15,10 @@ const DeleteCard = () =>{
   
     useEffect(() => {
      
-        console.log(price)
+        console.log(currentprice)
     
      
-    }, [price])
+    }, [price, currentprice])
 
 
     const incrishQuantity = () =>{ 

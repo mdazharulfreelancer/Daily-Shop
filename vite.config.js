@@ -7,11 +7,15 @@ export default defineConfig({
   server :{
     proxy : {
       '/api/v1' : {
-        target : ' http://localhost:5175 ',
+        target : ' http://localhost:5175',
         changeOrigin: true,
      
       }
-    }
+    },
+    hmr: {
+      overlay: false, // Disable HMR overlay to avoid double logs
+    },
   }
+  
 })
 

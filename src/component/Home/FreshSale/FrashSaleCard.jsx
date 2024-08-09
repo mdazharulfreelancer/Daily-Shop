@@ -2,31 +2,41 @@ import { Box, Flex, Image, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const FrashSaleCard = () => {
+const FrashSaleCard = ({product}) => {
   return (
         <>
              <Flex bg={'white'}  className='cardshop'>
-                        <VStack  as={Link} to={'/ditals-product/asdsad'}    _hover={{shadow :'2xl'}}   pb={3} overflow={'hidden'} borderRadius={2} w={'190px'} alignItems={'start'}>
-                            <Box  w={'full'}>
-                                <Image w={'full'} src={'https://static-01.daraz.com.bd/p/cc1dd8321a28294df34dc9f875879b0b.jpg'} />
-                            </Box>
+                        <VStack  as={Link} to={`/ditals-product/${product._id}/${product?.productname}`}    _hover={{shadow :'2xl'}}   pb={3} overflow={'hidden'} borderRadius={2} w={'190px'} alignItems={'start'}>
+                        {
+                            product?.productimage && product?.productimage.map((image, index)=>{
+                                return(
+                                    index === 0 && (
+                                        <Box key={index} w={'full'} h={'180px'}>
+                                        <Image w={'full'} h={'100%'} src={image.url} />
+                                    </Box>
+                                    )
+                               
+                                )
+                             })
+                        }
+                         
 
                             <VStack alignItems={'start'} w={'full'} px={3}>
                             <Box>
-                                <Text fontSize={'sm'} fontWeight={'sm'}>Pure and Natural Dried Fried Peanut with Sea </Text>
+                                <Text fontSize={'14'} fontWeight={'500'} color={'gray.700'}>{product?.productname?.length > 38 ? product.productname.slice(0,30)+'...' : product.productname} </Text>
                             </Box>
 
                                 <VStack alignItems={'start'} spacing={0} gap={0}>
                                     <Box>
-                                    <Text fontSize={18} color={'orange.500'}>
-                                    ৳ 175
+                                    <Text fontSize={17} fontWeight={500} color={'orange.500'}>
+                                    ৳ {product?.currentprice?.length > 5 ? product?.currentprice?.slice(0,5) : product.currentprice}
                                     </Text>
                                 </Box>
 
                                 <Flex w={'full'} gap={2}>
-                                    <Text fontSize={'sm'} color={'gray.500'} textDecoration={'line-through'}> ৳ 200</Text>
+                                    <Text fontSize={'13px'}fontWeight={500} color={'gray.500'} textDecoration={'line-through'}> ৳ {product?.regularprice?.length > 5 ? product?.regularprice?.slice(0,5) : product.regularprice}</Text>
 
-                                    <Text fontSize={'sm'} color={'gray.700'} > -40%</Text>
+                                    <Text fontSize={'sm'} color={'gray.700'} > {Math.floor(((product?.regularprice - product?.currentprice)/product?.regularprice)*100)}%</Text>
                                     
                                 </Flex>
                                 </VStack>
