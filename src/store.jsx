@@ -1,6 +1,6 @@
 //import
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+//import { composeWithDevTools } from 'redux-devtools-extension';
 import { thunk } from 'redux-thunk';
 import { addToCart } from './reducer/CartReducer';
 import { getAllDilevariProductPhone, getAllLowPriceProductPhone, getAllNewProductPcRight, getAllNewProductPhone, getAllProductFlashSalePc, getAllProductFlashSalePcpage, getAllProductFlashSalePhoneReducer, getAllProductHomeJustForYouPc, getAllProductHomeJustForYouPcProduct, getAllProductHomeJustForYouPhoneLeft, getAllProductHomeJustForYouPhoneRight, getAllProductUser, getProductDitalsIdName } from './reducer/ProductReducer';
@@ -46,7 +46,8 @@ const middleware = [thunk]
 const store = createStore(
     reducer,
     initialState,
-    composeWithDevTools(applyMiddleware(...middleware))
+       applyMiddleware(...middleware)
+    //composeWithDevTools(applyMiddleware(...middleware))
 )
 
 export default store
