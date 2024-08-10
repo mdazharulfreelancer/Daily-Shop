@@ -8,6 +8,18 @@ import HomeSlider from '../../component/Home/HomeSlider/HomeSlider'
 import JustForYou from '../../component/Home/JustForYou/JustForYou'
 
 const Home = () => {
+ const fetchData = async () => {
+      try {
+        const response = await axios.get('https://daily-shop-backend.vercel.app/api/v1/flash-sale/10');
+        console.log(response);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    // Call the async function
+    fetchData();
+  
   return (
     <>
       <VStack alignItems={"start"} w={"full"}>
