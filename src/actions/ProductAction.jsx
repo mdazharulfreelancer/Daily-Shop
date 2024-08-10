@@ -183,7 +183,7 @@ export const getProductFlashSalePcPage = (resultpage) => async (dispatch) => {
     dispatch({type :GET_ALL_PRODUCT_FLASH_SALE_PC_REQUEST})
 
     try {
-        const {data} = await axios.get(`https://daily-shop-backend.vercel.app/api/v1/flash-sale-pc-page`)
+        const {data} = await axios.get(`/api/v1/flash-sale-pc-page`)
 
         dispatch({
             type: GET_ALL_PRODUCT_FLASH_SALE_PC_SUCCESS,
