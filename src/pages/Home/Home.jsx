@@ -11,7 +11,7 @@ import axios from 'axios'
 const Home = () => {
  const fetchData = async () => {
       try {
-        const response = await axios.get('/api/v1/flash-sales/10');
+        const response = await axios.get('https://daily-shop-backend.vercel.app/api/v1/search-productpc');
         console.log(response);
       } catch (error) {
         console.log(error.message);
