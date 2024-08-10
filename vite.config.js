@@ -8,6 +8,7 @@ export default defineConfig({
     proxy : {
       '/api/v1' : {
         target :'https://daily-shop-backend.vercel.app',
+         rewrite: (path) => path.replace(/^\/api\/v1/, '/api/v1'),
         changeOrigin: true,
      
       }
