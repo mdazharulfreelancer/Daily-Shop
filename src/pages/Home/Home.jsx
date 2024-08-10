@@ -6,6 +6,7 @@ import HomeFastCategory from '../../component/Home/FastCategory/HomeFastCategory
 import FrashSale from '../../component/Home/FreshSale/FrashSale'
 import HomeSlider from '../../component/Home/HomeSlider/HomeSlider'
 import JustForYou from '../../component/Home/JustForYou/JustForYou'
+import axios from 'axios'
 
 const Home = () => {
  const fetchData = async () => {
