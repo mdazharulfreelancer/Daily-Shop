@@ -26,7 +26,7 @@ export const getHomeJustForYouPhoneLeft = (page) => async (dispatch) => {
     dispatch({type:GET_ALL_PRODUCT_JUSTFORYOU_PHONE_LEFT_REQUEST})
 
     try {
-        const {data} = await axios.get(`/api/v1/get-all-product-just-for-you-phone-left?page=${page}`)
+        const {data} = await axios.get(`https://daily-shop-backend.vercel.app/api/v1/get-all-product-just-for-you-phone-left?page=${page}`)
 
         dispatch({
             type: GET_ALL_PRODUCT_JUSTFORYOU_PHONE_LEFT_SUCCESS,
@@ -45,7 +45,7 @@ export const getNewProductPhone = (resultpage) => async (dispatch) => {
     dispatch({type :GET_ALL_NEW_PRODUCT_REQUEST})
 
     try {
-        const {data} = await axios.get(`/api/v1/new-product-phone?page=${resultpage}`)
+        const {data} = await axios.get(`https://daily-shop-backend.vercel.app/api/v1/new-product-phone?page=${resultpage}`)
 
         dispatch({
             type: GET_ALL_NEW_PRODUCT_SUCCESS,
@@ -66,7 +66,7 @@ export const getAllNewLowPricePhone = (page) => async (dispatch) => {
     dispatch({type :GET_ALL_LOW_PRICE_PRODUCT_RIGHT_REQUEST})
 
     try {
-        const {data} = await axios.get(`/api/v1/low-price-products-phone?page=${page}`)
+        const {data} = await axios.get(`https://daily-shop-backend.vercel.app/api/v1/low-price-products-phone?page=${page}`)
 
         dispatch({
             type: GET_ALL_LOW_PRICE_PRODUCT_RIGHT_SUCCESS,
@@ -105,7 +105,7 @@ export const getHomeJustForYouProductPc = (page) => async (dispatch) => {
     dispatch({type:GET_JUST_FOR_PRODUCT_REQUEST})
 
     try {
-        const {data} = await axios.get(`/api/v1/home-just-for-products-pc?page=${page}`)
+        const {data} = await axios.get(`https://daily-shop-backend.vercel.app/api/v1/home-just-for-products-pc?page=${page}`)
 
         dispatch({
             type: GET_JUST_FOR_PRODUCT_SUCCESS,
@@ -222,7 +222,7 @@ export const getProductFlashSalePhone = (resultpage) => async (dispatch) => {
     dispatch({type :GET_ALL_PRODUCT_FLASH_SALE_PHONE_REQUEST})
 
     try {
-        const {data} = await axios.get(`/api/v1/flash-sale-phone/${resultpage}`)
+        const {data} = await axios.get(`https://daily-shop-backend.vercel.app/api/v1/flash-sale-phone/${resultpage}`)
 
         dispatch({
             type: GET_ALL_PRODUCT_FLASH_SALE_PHONE_SUCCESS,
