@@ -16,7 +16,7 @@ const ImgShow = ({index , image, product}) => {
   return (
     index === indeximg && (
         <Box key={index} w={'full'} h={'172px'}>
-        <Image w={'full'} h={'100%'}  alt={product.productname} src={image.url} />
+        <Image w={'full'} h={'100%'}  alt={product?.productname} src={image?.url} />
       
     </Box>
     )
