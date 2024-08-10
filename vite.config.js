@@ -7,7 +7,7 @@ export default defineConfig({
   server :{
     proxy : {
       '/api/v1' : {
-        target : ' http://localhost:5175',
+        target :'https://daily-shop-backend.vercel.app',
         changeOrigin: true,
      
       }
