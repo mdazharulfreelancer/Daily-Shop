@@ -47,7 +47,7 @@ const store = createStore(
     reducer,
     initialState,
        applyMiddleware(...middleware)
-    //composeWithDevTools(applyMiddleware(...middleware))
+ //   composeWithDevTools(applyMiddleware(...middleware))
 )
 
 export default store

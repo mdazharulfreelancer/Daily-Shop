@@ -52,8 +52,8 @@ const JustForYou = () => {
 
   //function
   const getUniqueRandomNumber = (numbers) => { 
-    console.log(numbers)
-    console.log(numbers)
+//    console.log(numbers)
+ //   console.log(numbers)
     if(lastFourRandomNumbers.length === numbers.length ){
         return null
     }
@@ -266,7 +266,7 @@ const justFor = useRef()
                         {
                            data &&  data.slice((data.length / 2) , data.length ).map((product, index)=>{
                                 return(
-                                    <JustForYouPhoneRightCard key={index} product={product} />
+                                    <JustForYouPhoneRightCard loading={loadingprodcut} key={index} product={product} />
                                 )
                             })
                             

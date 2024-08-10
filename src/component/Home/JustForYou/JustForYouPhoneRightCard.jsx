@@ -1,10 +1,10 @@
 import { StarIcon } from '@chakra-ui/icons'
-import { Box, Flex, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, Image, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ImgShow from './imgShow'
+import loadingimg from '../../../assets/E-box_Logo-removebg-preview.png'
 
-const JustForYouPhoneRightCard = ({product}) => {
+const JustForYouPhoneRightCard = ({product ,loading}) => {
     React.useEffect(() => {
         // Select all div elements within the component
         const divElements = document.querySelectorAll('div');
@@ -44,18 +44,28 @@ const JustForYouPhoneRightCard = ({product}) => {
         <>
                    <Flex _hover={{shadow:{base:'xl', md:'2xl'}}} bg={'white'} w={{base:'100%', sm:'49.5%',md:'24.5%', lg:'16.5%'}}overflow={'hidden'}borderRadius={5} className='cardshop'>
                         <VStack spacing={3}  as={Link} to={`/ditals-product/${product._id}/${product.productname}`}   pb={3} overflow={'hidden'} borderRadius={2} alignItems={'start'}>
+               
                         {
                             product?.productimage && product?.productimage.map((image, index)=>{
-                              
-                              
                                 return(
-                                    
-                                    <ImgShow key={index} image={image} product ={product} index={index} />
+                                    index === 0 && (
+                                        <Box key={index} w={'full'} h={'172px'}>
+                                            {
+                                                loading && ( 
+                                                    <>
+                                                    <Flex w={'full'} h={'full'} justify={'center'} alignItems={'center'} bg={'#f7f6f6'} >
+                                                        <Image w={'full'} h={'full'} src={loadingimg} alt='loadingimage'/>
+                                                    </Flex>
+                                                    </>
+                                                )
+                                            }
+                                         <Image w={'full'} h={'100%'} src={image.url} alt={product.productname} /> 
+                                    </Box>
+                                    )
                                
                                 )
                              })
                         }
-                         
 
                             <VStack spacing={2} alignItems={'start'} w={'full'} px={3}>
                             <Box>
