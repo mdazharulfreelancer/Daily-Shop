@@ -7,7 +7,7 @@ export default defineConfig({
   server :{
     proxy : {
       '/api/v1' : {
-        target :'https://daily-shop-backend.vercel.app',
+        target :'https://dailyshop-azharul-backend.vercel.app',
          rewrite: (path) => path.replace(/^\/api\/v1/, '/api/v1'),
         changeOrigin: true,
      
